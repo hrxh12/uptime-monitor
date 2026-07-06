@@ -1,10 +1,12 @@
 require('dotenv').config()
 
+const cors = require('cors');
 const express= require('express');
 const mongoose=require('mongoose');
 
 const app=express();
 
+app.use(cors());
 //Middleware lets express understand json
 app.use(express.json());
 

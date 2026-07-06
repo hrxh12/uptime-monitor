@@ -14,19 +14,18 @@ const monitorSchema=new mongoose.Schema({
         type:String,
         default:'GET'
     },
-    intervalSecond:{
+    intervalSeconds:{
         type:Number,
         default:300
     },
     expectedStatus:{
-        type:Number,
-        default:200
+        type:Number
     },
     timeoutMs:{
         type:Number,
         default:5000
     },
-    alerEmail:{
+    alertEmail:{
         type:String
     },
     failureThreshold:{
