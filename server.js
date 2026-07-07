@@ -3,7 +3,6 @@ require('dotenv').config()
 const cors = require('cors');
 const express= require('express');
 const mongoose=require('mongoose');
-
 const app=express();
 
 app.use(cors());
@@ -14,6 +13,11 @@ app.use(express.json());
 app.get('/health',(req,res)=>{
     res.json({status:'ok', message:'server is running'});
 });
+
+//Auth se related routes (signup/login)
+//dhyan: cors() aur express.json() ke BAAD — middleware upar se neeche order mein chalta hai
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 //Moonitor se Related saare routes
 const monitorRoutes=require('./routes/monitors');

@@ -2,6 +2,10 @@ const mongoose=require('mongoose');
 
 //Monitor ki fields
 const monitorSchema=new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId, // dusre document (User) ki id
+        ref: 'User'
+    },
     name:{
         type:String,
         required:true
@@ -43,6 +47,11 @@ const monitorSchema=new mongoose.Schema({
     isPaused:{
         type:Boolean,
         default:false
+    },
+    //aakhri baar scheduler ne iska check job kab daala tha
+    //default nahi diya — naya monitor turant due hoga (pehla check jaldi mile)
+    lastEnqueuedAt:{
+        type:Date
     },
     createdAt:{
         type:Date,
