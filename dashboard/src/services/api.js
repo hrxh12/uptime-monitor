@@ -1,5 +1,7 @@
-// backend ka base URL ek jagah rakho (baad mein badalna ho to sirf yahin badlo)
-const API_URL = 'http://localhost:4000';
+// backend ka base URL — deploy par env variable se aata hai (Vercel mein VITE_API_URL),
+// local par fallback localhost. Vite mein env vars import.meta.env se milte hain
+// aur unka naam VITE_ se shuru hona zaroori hai
+const API_URL =import.meta.env.VITE_API_URL || "http://localhost:4000";
 
 // login/signup ke baad token bachao
 export function saveToken(token) {
