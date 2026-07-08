@@ -9,6 +9,7 @@
     "scheduler": "node scheduler-queue.js",
     "web": "npm run dev --prefix dashboard",
     "dev": "concurrently -n api,worker,sched,web -c blue,green,yellow,magenta npm:api npm:worker npm:scheduler npm:web",
+    "start": "concurrently -n api,worker,sched npm:api npm:worker npm:scheduler",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,14 +19,12 @@
     "axios": "^1.18.1",
     "bcryptjs": "^3.0.3",
     "bullmq": "^5.79.2",
+    "concurrently": "^10.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "ioredis": "^5.11.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.7.3"
-  },
-  "devDependencies": {
-    "concurrently": "^10.0.3"
   }
 }
